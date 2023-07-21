@@ -88,6 +88,6 @@ def main(argv):
   message = emails.generate(sender, receiver, subject, body, "/tmp/cars.pdf")  # creates email
   emails.send(message)
 
-
+~
 if __name__ == "__main__":
   main(sys.argv)
