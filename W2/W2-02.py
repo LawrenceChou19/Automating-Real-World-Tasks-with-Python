@@ -1,34 +1,26 @@
-#!/usr/bin/env python3
-import os
-import requests
+import json
 
-# set source dir for feedback file:
-src_dir = "/data/feedback/"
+people = [
+  {
+    "name": "Sabrina Green",
+    "username": "sgreen",
+    "phone": {
+      "office": "802-867-5309",
+      "cell": "802-867-5310"
+    },
+    "department": "IT Infrastructure",
+    "role": "Systems Administrator"
+  },
+  {
+    "name": "Eli Jones",
+    "username": "ejones",
+    "phone": {
+      "office": "684-348-1127"
+    },
+    "department": "IT Infrastructure",
+    "role": "IT Specialist"
+  }
+]
 
-# capture list of files:
-files = os.listdir(src_dir)
-
-# function to read file lines into list:
-def readlines(file):
-    with open(src_dir + file) as f:
-        lines = f.read().splitlines()
-    return lines
-
-
-# load feedback entries into dictionary:
-feedback = []
-keys = ["title", "name", "date", "feedback"]
-for file in files:
-    lines = readlines(file)
-    feedback.append(dict(zip(keys, lines)))
-
-# set host url:
-url = "http://localhost/feedback/"
-
-# post feedback entries:
-for entry in feedback:
-    response = requests.post(url, data=entry)
-    if response.ok:
-        print("loaded entry")
-    else:
-        print(f"load entry error: {response.status_code}")
+with open('people.json', 'w') as people_json:
+    json.dump(people, people_json)
