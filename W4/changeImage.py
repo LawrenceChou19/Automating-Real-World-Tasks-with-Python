@@ -18,16 +18,11 @@ for filename in os.listdir(directory):
     if filename.endswith(".tiff"):
         # print(filename)
         im = Image.open(os.path.join(directory,filename))
+        #split 001.tiff -> 001 and tiff 
+        splitfilename = filename.split(".")
         im = im.resize((600,400))
         im = im.convert("RGB")
-        im.save(os.path.join(directory,filename+".jpeg"))
+        #save 001 with .jpeg extension format
+        im.save(os.path.join(directory,splitfilename[0]+".jpeg"))
 
-# path = "supplier-data/images/"
-# for f in os.listdir("supplier-data/images"):
-#     if f.endswith(".tiff"):
-#         split_f = f.split(".")
-#         name = split_f[0] + ".jpeg"
-#         im = Image.open(path + f).convert("RGB")
-#         im.resize((600, 400)).save("./supplier-data/images/" + name, "JPEG")
-        
 # file ~/supplier-data/images/003.jpeg
