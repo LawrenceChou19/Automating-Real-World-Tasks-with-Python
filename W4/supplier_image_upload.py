@@ -5,7 +5,7 @@ import os
 # The Python Requests module
 
 url = "http://localhost/upload/"
-for f in os.listdir("./supplier-data/images"):
-    if f.endswith(".jpeg"):
-        with open('./supplier-data/images/' + f, 'rb') as opened:
+for filename in os.listdir("./supplier-data/images"):
+    if filename.endswith(".jpeg"):
+        with open('./supplier-data/images/' + filename, 'rb') as opened:
             r = requests.post(url, files={'file': opened})
