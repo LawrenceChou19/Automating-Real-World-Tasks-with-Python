@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import os
 import requests
+#sudo apt-get-update
+#sudo apt install python-django-common
+#sudo systemctl start google-startup-scripts.service
 
 # set source dir for feedback file:
 src_dir = "/data/feedback/"
