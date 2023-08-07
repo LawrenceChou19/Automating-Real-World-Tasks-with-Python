@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-from os import listdir, path
+
 from unicodedata import normalize
+from os import listdir, path
 import requests
 import json
 
